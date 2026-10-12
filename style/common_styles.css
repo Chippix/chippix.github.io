@@ -1,9 +1,36 @@
 body {
     font-family: monserrat;
     color: black;
+    justify-content: center;
+    display: flex;
 }
 
 .footer {
     /* customization */
     background-color: burlywood;
+}
+
+.pin_box {
+    background-color: yellow;
+    position: relative;
+    width: 100px;
+    height: 60px;
+    transform-origin: top;
+    transition: 0.2s;
+}
+
+/* draw pin on box */
+.pin_box::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: -5px;
+    left: calc(50% - 5px);
+    background-color: red;
+    border-radius: 50%;
+}
+
+.pin_box:hover{
+    transform: rotate(-15deg);
 }
