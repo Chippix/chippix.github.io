@@ -6,30 +6,55 @@ body {
     display: flex;
 }
 
+
 .footer {
     /* customization */
     background-color: burlywood;
 }
 
-.pin_box {
-    background-color: yellow;
+
+.note {
+    background-color: rgb(255, 255, 110);
+    box-shadow: 5px 5px rgba(50, 44, 50, 0.4);   
+}
+
+
+.pin {
     position: relative;
     transform-origin: top;
     transition: 0.2s;
 }
 
 /* draw pin on box */
-.pin_box::after {
+.pin::before {
     content: "";
     width: 10px;
     height: 10px;
     position: absolute;
     top: -5px;
     left: calc(50% - 5px);
-    background-color: red;
+    background-color: rgb(245, 100, 100);
     border-radius: 50%;
 }
 
-.pin_box:hover{
+.pin::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: -5px;
+    left: calc(50% - 5px);
+    background-color: rgb(255, 189, 189);
+    border-radius: 50%;
+}
+
+.pin:hover{
     transform: rotate(-15deg);
+}
+
+
+.polaroid {
+    background-color: whitesmoke;
+    box-shadow: 5px 5px rgba(50, 44, 50, 0.25);
+    padding: 1% 1% 3% 1%
 }
