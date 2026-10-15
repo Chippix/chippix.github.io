@@ -83,7 +83,28 @@ body {
 /* Polaroid */
 /* make container look like a polaroid */
 .polaroid {
-    background-color: linear-gradient(135deg, var(--color-polaroid), grey, var(--color-polaroid));
+    background: linear-gradient(165deg, rgb(213, 210, 225) 10%, white, rgb(210, 210, 210) 90%);
     box-shadow: 5px 5px var(--color-drop-shadow);
     padding: 0.5em 0.5em 1.5em 0.5em;
+    width: fit-content;
+    height: fit-content;
+}
+
+.polaroid img {
+    animation: fadeBlackIn 1s ease-in both;
+    display: block;
+}
+
+.fade {
+    background-color: black;
+}
+
+@keyframes fadeBlackIn {
+    from {
+        filter: brightness(0);
+    }
+
+    to {
+        filter: brightness(1);
+    }
 }
