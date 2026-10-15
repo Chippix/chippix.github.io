@@ -2,30 +2,56 @@ body {
     background: url("../assets/img/bg_cork.jpg") center / cover no-repeat fixed;
     font-family: monserrat;
     color: black;
-    justify-content: center;
+    justify-content: left;
     display: flex;
 }
 
 
+/* ========== GLOBAL VARIABLES == */
+:root {
+    --color-polaroid: whitesmoke;
+    --color-stick-note:  rgb(255, 255, 110);
+    --color-drop-shadow: rgba(50, 44, 50, 0.3);
+}
+
+/* ========== NAVIGATION ========= */
+
+/* Sidebar */
+/* For navigation between pages on the website */
+.sidebar {
+    width: clamp(120px, 15%, 320px);
+}
+
+/* Content */
+/* Main content of the page will be displayed here */
+.content {
+    justify-content: center;
+    width: auto;
+}
+
+/* Footer */
+/* Bottom info of the website */
 .footer {
-    /* customization */
     background-color: burlywood;
 }
 
+/* ========== TEXTURES =========== */
 
+/* Note */
+/* make container look like a sticky note */
 .note {
-    background-color: rgb(255, 255, 110);
-    box-shadow: 5px 5px rgba(50, 44, 50, 0.4);   
+    background-color: var(--color-stick-note);
+    box-shadow: 5px 5px var(--color-drop-shadow);   
 }
 
-
+/* Pin */
+/* draw pin on box and tilt on hover*/
 .pin {
     position: relative;
     transform-origin: top;
     transition: 0.2s;
 }
 
-/* draw pin on box */
 .pin::before {
     content: "";
     width: 10px;
@@ -52,9 +78,10 @@ body {
     transform: rotate(-15deg);
 }
 
-
+/* Polaroid */
+/* make container look like a polaroid */
 .polaroid {
-    background-color: whitesmoke;
-    box-shadow: 5px 5px rgba(50, 44, 50, 0.25);
+    background-color: var(--color-polaroid);
+    box-shadow: 5px 5px var(--color-drop-shadow);
     padding: 1% 1% 3% 1%
 }
