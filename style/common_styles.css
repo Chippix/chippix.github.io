@@ -14,6 +14,7 @@ body {
     --color-drop-shadow: rgba(50, 44, 50, 0.3);
     --size-pin: clamp(1rem, 2vw + 0.5rem, 2.5rem);
     --size-polaroid: clamp(0.5rem, 1vw + 0.25rem, 1.25rem);
+    --size-shadow: 0.5em;
 }
 
 /* ========== NAVIGATION ========= */
@@ -44,7 +45,7 @@ body {
 /* make container look like a sticky note */
 .note {
     background-color: var(--color-stick-note);
-    box-shadow: 5px 5px var(--color-drop-shadow);   
+    box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);   
 }
 
 /* Pin */
@@ -114,7 +115,7 @@ body {
 /* make container look like a polaroid */
 .polaroid {
     background: linear-gradient(165deg, rgb(213, 210, 225) 10%, white, rgb(210, 210, 210) 90%);
-    box-shadow: 5px 5px var(--color-drop-shadow);
+    box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
     padding: var(--size-polaroid) var(--size-polaroid) calc(var(--size-polaroid) * 2.5) var(--size-polaroid);
     width: fit-content;
     height: fit-content;
