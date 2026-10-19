@@ -31,6 +31,8 @@ body {
     min-width: 0;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Footer */
@@ -56,6 +58,11 @@ body {
     transition: 0.2s;
 }
 
+.pin:hover{
+    transform: rotate(-15deg);
+}
+
+/* Starting state */
 .pin::before {
     content: "";
     width: var(--size-pin);
@@ -65,7 +72,8 @@ body {
     left: calc(50% - calc(var(--size-pin) / 2) );
     background-color: rgb(245, 100, 100);
     border-radius: 50%;
-    animation: pinStuck 1s ease-in forwards, pinBounce 0.2s ease-in-out 1s;
+    /* Animation initial state */
+    visibility: hidden;
 }
 
 .pin::after {
@@ -77,11 +85,19 @@ body {
     left: calc(50% - var(--size-pin) / 2);
     background-color: rgb(255, 189, 189);
     border-radius: 50%;
+    /* Animation initial state */
+    visibility: hidden;
+}
+
+/* Animated state */
+.pin.triggered::before {
+    visibility: visible;
     animation: pinStuck 1s ease-in forwards, pinBounce 0.2s ease-in-out 1s;
 }
 
-.pin:hover{
-    transform: rotate(-15deg);
+.pin.triggered::after {
+    visibility: visible;
+    animation: pinStuck 1s ease-in forwards, pinBounce 0.2s ease-in-out 1s;
 }
 
 @keyframes pinStuck {
@@ -100,15 +116,15 @@ body {
         transform: translateY(-3px);
         transform: translateX(-1px);
     }
-    25% {
+    33% {
         transform: translateY(2px);
         transform: translateX(1px);
     }
-    50% {
+    66% {
         transform: translateY(-1px);
         transform: translateX(-0.5px);
     }
-    75% {
+    100% {
         transform: translateY(0px);
         transform: translateX(0px);
     }
@@ -116,22 +132,26 @@ body {
 
 /* Polaroid */
 /* make container look like a polaroid */
+
+/* Starting state */
 .polaroid {
     background: linear-gradient(165deg, rgb(213, 210, 225) 10%, white, rgb(210, 210, 210) 90%);
     box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
     padding: var(--size-polaroid) var(--size-polaroid) calc(var(--size-polaroid) * 2.5) var(--size-polaroid);
     width: fit-content;
     height: fit-content;
-    animation: slideIn 1s ease-out;
+    visibility: hidden;
 }
 
-.polaroid img {
+/* Animated state */
+.polaroid.triggered {
+    visibility: visible;
+    animation: slideIn 1s ease-out;
+} 
+
+.polaroid.triggered img {
     animation: fadeBlackIn 1s ease-in both;
     display: block;
-}
-
-.fade {
-    background-color: black;
 }
 
 @keyframes fadeBlackIn {

@@ -22,35 +22,78 @@
 
     <body id="page-top">
 
+        <!-- TODO: make sidebar sticky -->
         <aside class="sidebar">
-            <div class="note pin">
+            <!-- TODO: feels a bit sloppy to have to add 'triggered' to randy random classes that might have animation, when i want some of them to be triggered by default -->
+            <!-- find a fix for this -->
+            <div class="note pin triggered">
                 <h2>Blurb</h2>
             </div>
 
-            <div class="note pin">
+            <div class="note pin triggered">
                 <h2>Projects</h2>
             </div>
 
-            <div class="note pin">
+            <div class="note pin triggered">
                 <h2>Art</h2>
             </div>
 
-            <div class="note pin">
+            <div class="note pin triggered">
                 <h2>Links</h2>
             </div>
         </aside>
 
         <div class="content">
-            <div class="polaroid pin">
+
+            <!-- TODO: add landing page instead of spacer -->
+            <div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>:3<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
+            <div class="polaroid pin" data-trigger="triggered">
                 <img class="" 
                     src="assets/img/lemon.png" alt="Lemon man">
             </div>
 
-            <div class="polaroid pin">
+            <div class="polaroid pin" data-trigger="triggered">
                 <img class="" 
                     src="assets/img/thicky.png" alt="Thicky mouse" width="100px" height="160px">
             </div>
+
+            <div class="polaroid pin" data-trigger="triggered">
+                <img class="" 
+                    src="assets/img/lemon.png" alt="Lemon man">
+            </div>
+
+            <div class="polaroid pin" data-trigger="triggered">
+                <img class="" 
+                    src="assets/img/thicky.png" alt="Thicky mouse" width="100px" height="160px">
+            </div>
+            <div class="polaroid pin" data-trigger="triggered">
+                <img class="" 
+                    src="assets/img/lemon.png" alt="Lemon man">
+            </div>
+
+            <div class="polaroid pin" data-trigger="triggered">
+                <img class="" 
+                    src="assets/img/thicky.png" alt="Thicky mouse" width="100px" height="160px">
+            </div>
+            
         </div>
+
+        <!-- TODO: fix first image not triggering when on screen bug -->
+        <script>
+            const obs = new IntersectionObserver((entries, obs) => {
+                entries.forEach( entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(entry.target.dataset.trigger);
+                        obs.unobserve(entry.target);
+                    }
+
+                });
+            }, { threshold: 1 });
+
+            document.querySelectorAll('[data-trigger]').forEach(el => obs.observe(el));
+        </script>
 
     </body>
 </html>
