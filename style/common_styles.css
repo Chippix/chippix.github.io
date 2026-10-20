@@ -21,6 +21,9 @@ body {
 /* Sidebar */
 /* For navigation between pages on the website */
 .sidebar {
+    top: 0;
+    position: fixed;
+    position: -webkit-sticky;
     width: clamp(120px, 15%, 320px);
 }
 
