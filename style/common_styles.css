@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Scriblefont';
+    src: url(../assets/font/SiKancil.otf) format('opentype');
+}
+
 body {
     background: url("../assets/img/bg_cork.jpg") center / cover no-repeat fixed;
     font-family: monserrat;
@@ -5,6 +10,16 @@ body {
     justify-content: left;
     display: flex;
 }
+
+h1 {
+    font-family: 'Scriblefont', sans-serif;
+}
+
+
+h2 {
+    font-family: 'Scriblefont', sans-serif;
+}
+
 
 
 /* ========== GLOBAL VARIABLES == */
@@ -50,7 +65,8 @@ body {
 /* make container look like a sticky note */
 .note {
     background-color: var(--color-stick-note);
-    box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);   
+    box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
+    color: blue;
 }
 
 /* Pin */
