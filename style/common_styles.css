@@ -80,7 +80,7 @@ button {
 .note {
     background-color: var(--color-stick-note);
     box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
-    padding: 0.5em 1em 0.5em 1em;
+    padding: calc(var(--size-pin) * 0.5);
     margin: 0.5em;
     color: blue;
 }
