@@ -75,14 +75,13 @@ button {
     }
 }
 
-
-
 /* Note */
 /* make container look like a sticky note */
 .note {
     background-color: var(--color-stick-note);
     box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
-    padding: 0.25em 1em 0em 1em;
+    padding: 0.5em 1em 0.5em 1em;
+    margin: 0.5em;
     color: blue;
 }
 
