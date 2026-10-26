@@ -44,7 +44,7 @@ h2 {
 }
 
 /* Content */
-/* Main content of the page will be displayed here */
+/* Main content container, content of the page will be displayed here */
 .content {
     flex: 1;
     min-width: 0;
@@ -53,6 +53,18 @@ h2 {
     justify-content: center;
     align-items: center;
     gap: 5em;
+}
+
+/* Block */
+/* A dynamic screen sized container that centers all inline items it contains */
+.section {
+    min-width: 100vw;
+    min-height: 100vh;
+    /* dleete the color later when testing is done */
+    background-color: aqua; 
+    justify-content:center;
+    align-items: center;
+    display: inline-flex;
 }
 
 /* Footer */
