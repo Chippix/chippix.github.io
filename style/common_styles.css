@@ -68,10 +68,13 @@ button {
     background-color: transparent;
     font-size: 1.5em;
     border-color: transparent;
-    text-decoration: none;
+    width: 100%;
 
     a {
         text-decoration: none;
+        height: 100%;
+        display: block;
+        padding: 1em;
     }
 }
 
@@ -80,7 +83,7 @@ button {
 .note {
     background-color: var(--color-stick-note);
     box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
-    padding: calc(var(--size-pin) * 0.5);
+    padding-top: calc(var(--size-pin) * 0.5);
     margin: 0.5em;
     color: blue;
 }
