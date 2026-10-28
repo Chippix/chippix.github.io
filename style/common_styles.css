@@ -3,24 +3,16 @@
     src: url(../assets/font/SiKancil.otf) format('opentype');
 }
 
+*{
+    font-family: 'Scriblefont', sans-serif;
+}
+
 body {
     background: url("../assets/img/bg_cork.jpg") center / cover no-repeat fixed;
-    font-family: monserrat;
     color: black;
     justify-content: left;
     display: flex;
 }
-
-h1 {
-    font-family: 'Scriblefont', sans-serif;
-}
-
-
-h2 {
-    font-family: 'Scriblefont', sans-serif;
-}
-
-
 
 /* ========== GLOBAL VARIABLES == */
 :root {
@@ -60,7 +52,7 @@ h2 {
 .section {
     min-width: 100vw;
     min-height: 100vh;
-    /* dleete the color later when testing is done */
+    /* delete the color later when testing is done */
     background-color: aqua; 
     justify-content:center;
     align-items: center;
@@ -82,14 +74,13 @@ button {
     font-size: 1.5em;
     border-color: transparent;
     width: 100%;
+    padding: 0.75em;
 }
 
 button a {
-    font-family: 'Scriblefont', sans-serif;
     text-decoration: none;
     height: 100%;
     display: block;
-    padding: 0.75em;
 }
 
 /* For hiding buttons initially */
