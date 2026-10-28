@@ -22,23 +22,37 @@
 
     <body id="page-top">
 
+
         <!-- TODO: make sidebar collapsable for mobile user friendliness -->
-        <aside class="sidebar">
-            <!-- TODO: feels a bit sloppy to have to add 'triggered' to randy random classes that might have animation, when i want some of them to be triggered by default -->
-            <!-- find a fix for this -->
-            <button class="note pin triggered">
-                <a href="#navigation">Navigation</a>
+        <div class="sidebar">
+
+            <aside id="sidemenu">
+                <!-- TODO: feels a bit sloppy to have to add 'triggered' to randy random classes that might have animation, when i want some of them to be triggered by default -->
+                <!-- find a fix for this -->
+                <button class="note pin triggered">
+                    <a href="#navigation">Navigation</a>
+                </button>
+                <button class="note pin triggered">
+                    <a href="#projects">Projects</a>
+                </button>
+                <button class="note pin triggered">
+                    <a href="#art">Art</a>
+                </button>
+                <button class="note pin triggered">
+                    <a href="#links">Links</a>
+                </button>
+                <button id="sidemenuCloseButton" onClick="sidemenuClose()" class="note pin triggered">
+                    Hide
+                </button>
+            </aside>
+
+            <button id="sidemenuOpenButton" onClick="sidemenuOpen()" class="note pin triggered hidden-initial">
+                Open
             </button>
-            <button class="note pin triggered">
-                <a href="#projects">Projects</a>
-            </button>
-            <button class="note pin triggered">
-                <a href="#art">Art</a>
-            </button>
-            <button class="note pin triggered">
-                <a href="#links">Links</a>
-            </button>
-        </aside>
+
+        </div>
+ 
+
 
         <div class="content">
 
@@ -106,6 +120,19 @@
             }, { threshold: 1 });
 
             document.querySelectorAll('[data-trigger]').forEach(el => obs.observe(el));
+        </script>
+
+        <script>
+            function sidemenuClose() {
+                document.getElementById("sidemenuCloseButton").style.display = "none";
+                document.getElementById("sidemenu").style.display = "none";
+                document.getElementById("sidemenuOpenButton").style.display = "block";
+            }
+            function sidemenuOpen() {
+                document.getElementById("sidemenuCloseButton").style.display = "block";
+                document.getElementById("sidemenu").style.display = "block";
+                document.getElementById("sidemenuOpenButton").style.display = "none";
+            }
         </script>
 
     </body>
