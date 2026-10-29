@@ -22,23 +22,23 @@
 
     <body id="page-top">
 
+        
 
-        <!-- TODO: make sidebar collapsable for mobile user friendliness -->
         <div class="sidebar">
 
             <aside id="sidemenu">
                 <!-- TODO: feels a bit sloppy to have to add 'triggered' to randy random classes that might have animation, when i want some of them to be triggered by default -->
                 <!-- find a fix for this -->
-                <button class="note pin triggered">
+                <button class="note pin triggered" onclick="window.location.href='#navigation'">
                     <a href="#navigation">Navigation</a>
                 </button>
-                <button class="note pin triggered">
+                <button class="note pin triggered" onclick="window.location.href='#projects'">
                     <a href="#projects">Projects</a>
                 </button>
-                <button class="note pin triggered">
+                <button class="note pin triggered" onclick="window.location.href='#art'">
                     <a href="#art">Art</a>
                 </button>
-                <button class="note pin triggered">
+                <button class="note pin triggered" onclick="window.location.href='#links'">
                     <a href="#links">Links</a>
                 </button>
                 <button id="sidemenuCloseButton" onClick="sidemenuClose()" class="note pin triggered">
