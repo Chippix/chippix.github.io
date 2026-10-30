@@ -22,7 +22,6 @@
 
     <body id="page-top">
 
-        
 
         <div class="sidebar">
 
@@ -50,14 +49,35 @@
                 Open
             </button>
 
+        </div> <!-- sidebar -->
+
+        <!-- TODO: implement info panel with information about clicked on thingin -->
+        <div class="info-panel">
+            <button id="infopanelCloseButton" onClick="infoClose()" class="">X</button>
+            
+            <img id="projectImg" src="assets/img/lemon.png">
+            <h1 id="projectName">Project Name</h1>
+            <p id="projectDescription">This man is holding a lemon.<br>
+                Have a look at <a href="https://www.alamy.com/stock-photo-business-man-holding-lemon-28762282.html"> it. </a>
+            
+            </p>
         </div>
- 
 
 
         <div class="content">
 
             <div class="section" id="navigation">
-                <p>hello landing page :3</p>
+                <p> Hi :3c </p>
+            </div>
+
+            <div class="section" id="projects">
+                <p>Projects</p>
+                <div class="note pin triggered">
+                    This website :3!!
+                </div>
+                <div class="sideinfo">
+
+                </div>
             </div>
 
             <div id="art"></div>
@@ -97,12 +117,13 @@
                 SiKancil - http://naraaksara.com
             </div>
 
-            <div class="section" id="projects">
-                <p>  hello landing page :3 </p>
+            <div class="note pin triggered">
+                <p> Thanks to @luzypup on discord <br>
+                    for the inspiration for this website!</p>
             </div>
 
             <div class="section" id="links">
-                <p>  hello landing page :3 </p>
+                <p> Social Media </p>
             </div>
             
         </div>
@@ -133,6 +154,17 @@
                 document.getElementById("sidemenu").style.display = "block";
                 document.getElementById("sidemenuOpenButton").style.display = "none";
             }
+
+
+            // Opens info panel on html elements which have expandable info 
+            function infoOpen() {
+                // 1. get element id passed
+                // 2. look up element id in folder info database for infopanel
+                // 3. replace element text and stuff with the infobox pulled
+                // 4. open the infopanel
+            }
+
+
         </script>
 
     </body>
