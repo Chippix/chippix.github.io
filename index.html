@@ -28,33 +28,52 @@
             <aside id="sidemenu">
                 <!-- TODO: feels a bit sloppy to have to add 'triggered' to randy random classes that might have animation, when i want some of them to be triggered by default -->
                 <!-- find a fix for this -->
-                <button class="note pin triggered" onclick="window.location.href='#navigation'">
+                <button 
+                    class="note pin triggered" 
+                    onclick="window.location.href='#navigation'">
                     <a href="#navigation">Navigation</a>
                 </button>
-                <button class="note pin triggered" onclick="window.location.href='#projects'">
+                <button 
+                    class="note pin triggered" 
+                    onclick="window.location.href='#projects'">
                     <a href="#projects">Projects</a>
                 </button>
-                <button class="note pin triggered" onclick="window.location.href='#art'">
+                <button 
+                    class="note pin triggered" 
+                    onclick="window.location.href='#art'">
                     <a href="#art">Art</a>
                 </button>
-                <button class="note pin triggered" onclick="window.location.href='#links'">
+                <button 
+                    class="note pin triggered" 
+                    onclick="window.location.href='#links'">
                     <a href="#links">Links</a>
                 </button>
-                <button id="sidemenuCloseButton" onClick="sidemenuClose()" class="note pin triggered">
+                <button 
+                    id="sidemenuCloseButton" 
+                    onClick="closeContainer('sidemenu', '', 'sidemenuOpenButton')" 
+                    class="note pin triggered">
                     Hide
                 </button>
             </aside>
 
-            <button id="sidemenuOpenButton" onClick="sidemenuOpen()" class="note pin triggered hidden-initial">
+            <button 
+                id="sidemenuOpenButton" 
+                onClick="openContainer('sidemenu', '', 'sidemenuOpenButton')" 
+                class="note pin triggered hidden-initial">
                 Open
             </button>
 
         </div> <!-- sidebar -->
 
         <!-- TODO: implement info panel with information about clicked on thingin -->
-        <div class="info-panel">
+        <div id="infoPanel" class="info-panel">
             <div class="row align-right">
-                <button id="infopanelCloseButton" onClick="infoClose()" class="">X</button>
+                <button 
+                    id="infopanelCloseButton" 
+                    onClick="closeContainer('infoPanel', '', '')" 
+                    class="">
+                    X
+                </button>
             </div>
             
             
@@ -147,15 +166,40 @@
         </script>
 
         <script>
-            function sidemenuClose() {
-                document.getElementById("sidemenuCloseButton").style.display = "none";
-                document.getElementById("sidemenu").style.display = "none";
-                document.getElementById("sidemenuOpenButton").style.display = "block";
+            /**
+             * Hides a container and its operating buttons optionally
+             * 
+             * @param {string} closedContainerId Container to close
+             * @param {string} closeButtonId Optional button to hide
+             * @param {string} openButtonId Optional button to display
+             * 
+             */
+            function closeContainer(closedContainerId, closeButtonId, openButtonId) {
+                document.getElementById(closedContainerId).style.display = "none";
+                if (closeButtonId != null && closeButtonId!='') {
+                    document.getElementById(closeButtonId).style.display = "none";
+                }
+                if (openButtonId != null && openButtonId!='') {
+                    document.getElementById(openButtonId).style.display = "block";
+                }
             }
-            function sidemenuOpen() {
-                document.getElementById("sidemenuCloseButton").style.display = "block";
-                document.getElementById("sidemenu").style.display = "block";
-                document.getElementById("sidemenuOpenButton").style.display = "none";
+
+            /**
+             * Shows a container and its operating buttons optionally
+             * 
+             * @param {string} openedContainerId Container to close
+             * @param {string} closeButtonId Optional button to hide
+             * @param {string} openButtonId Optional button to display
+             * 
+             */
+            function openContainer(openedContainerId, closeButtonId, openButtonId) {
+                document.getElementById(openedContainerId).style.display = "block";
+                if (closeButtonId != null && closeButtonId!='') {
+                    document.getElementById(closeButtonId).style.display = "block";
+                }
+                if (openButtonId != null && openButtonId!='') {
+                    document.getElementById(openButtonId).style.display = "none";
+                }
             }
 
 
