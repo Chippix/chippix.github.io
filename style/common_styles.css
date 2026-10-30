@@ -61,6 +61,19 @@ body {
     display: inline-flex;
 }
 
+/* Row */
+/* A basic which stretches out to the entire screen length and aligns items next to each other. */
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 0.5em;
+}
+
+.align-right {
+    justify-content: right;
+}
+
 /* Info Panel */
 /* Sidepanel that opens up when an element with the class informational is clicked. */
 .info-panel {
@@ -97,7 +110,7 @@ button {
     text-shadow: inherit;
     font-size: 1.5em;
     border-color: transparent;
-    width: 100%;
+    /* width: 100%; */
     padding: 0.75em;
     cursor: pointer;
 }
