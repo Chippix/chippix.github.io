@@ -59,23 +59,22 @@
             <button 
                 id="sidemenuOpenButton" 
                 onClick="openContainer('sidemenu', '', 'sidemenuOpenButton')" 
-                class="note pin triggered hidden-initial">
+                class="note pin triggered hide">
                 Open
             </button>
 
         </div> <!-- sidebar -->
 
-        <div id="infoPanel" class="info-panel hidden-initial">
+
+        <div id="infoPanel" class="info-panel">
             <div class="row align-right">
                 <button 
                     id="infopanelCloseButton" 
-                    onClick="closeContainer('infoPanel', '', '')" 
+                    onClick="infoPanelClose()" 
                     class="">
                     X
                 </button>
             </div>
-            
-            
             <img id="projectImg" src="assets/img/lemon.png">
             <h1 id="projectName">Project Name</h1>
             <p id="projectDescription">This man is holding a lemon.<br>
@@ -93,7 +92,7 @@
             <div class="section" id="projects">
                 <p>Projects</p>
                 <div
-                    onClick="openContainer('infoPanel', '', '')" 
+                    onClick="infoPanelOpen()" 
                     class="note pin triggered">
                     This website :3!!
                 </div>
@@ -174,7 +173,7 @@
              * @param {string} openButtonId Optional button to display
              * 
              */
-            function closeContainer(closedContainerId, closeButtonId, openButtonId) {
+            function closeContainer(closedContainerId, closeButtonId, openButtonId, className) {
                 document.getElementById(closedContainerId).style.display = "none";
                 if (closeButtonId != null && closeButtonId!='') {
                     document.getElementById(closeButtonId).style.display = "none";
@@ -202,16 +201,22 @@
                 }
             }
 
-
-            // Opens info panel on html elements which have expandable info 
-            function infoOpen() {
-                // 1. get element id passed
-                // 2. look up element id in folder info database for infopanel
-                // 3. replace element text and stuff with the infobox pulled
-                // 4. open the infopanel
+            function infoPanelOpen() {
+                document.getElementById('infoPanel').classList.add('open');
+                // await wait(1000);
+                // document.getElementById('infoPanel').addEventListener('slide-right', () => {
+                // document.getElementById('infoPanel').remove('slide-left'); 
+                // }, { once: true });
             }
 
 
+            function infoPanelClose() {
+                // document.getElementById('infoPanel').classList.add('slide-left');
+                // await wait(1000);
+                // document.getElementById('infoPanel').addEventListener('slide-left', () => {
+                document.getElementById('infoPanel').classList.remove('open'); 
+                // }, { once: true });
+            }
         </script>
 
     </body>
