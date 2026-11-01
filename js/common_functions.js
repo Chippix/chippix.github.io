@@ -53,6 +53,13 @@ function infoPanelClose() {
 
 async function projectPanelInit() {
     // Read links and break them up into an array
+    minTop = 10;
+    maxTop = 80;
+    minLeft = 10;
+    maxLeft = 70;
+    zMin = 1;
+    zMax = 9;
+
     ass = await fetch("projects.txt");
     assText = await ass.text();
     assray = assText.split('\n');
@@ -60,8 +67,14 @@ async function projectPanelInit() {
     for(let i = 0; i < assray.length; i++) {
         tmp_img = document.createElement('img');
         tmp_img.id = assray[i];
-        tmp_img.src = 'assets/img/mosquitto.png';
+        tmp_img.src = 'assets/img/projects/'+assray[i]+'/'+assray[i]+'.png';
         tmp_img.className = 'pin triggered';
+        tmp_img.onclick = infoPanelOpen;
+        tmp_img.style.position = 'absolute';
+        tmp_img.style.top = Math.floor((Math.random() * (maxTop-minTop) + minTop)).toString()+'%';
+        tmp_img.style.left = Math.floor((Math.random() * (maxLeft-minLeft) + minLeft)).toString()+'%';
+        tmp_img.style.z_index = Math.floor((Math.random() * (zMax-zMin) + zMin));
+        
 
         document.getElementById('projects').appendChild(tmp_img);
     }
