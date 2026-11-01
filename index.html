@@ -54,6 +54,12 @@
                     class="note pin triggered">
                     Hide
                 </button>
+                <button 
+                    id="testButton" 
+                    onClick="projectPanelInit()" 
+                    class="note pin triggered">
+                    Test
+                </button>
             </aside>
 
             <button 
@@ -216,6 +222,22 @@
                 // document.getElementById('infoPanel').addEventListener('slide-left', () => {
                 document.getElementById('infoPanel').classList.remove('open'); 
                 // }, { once: true });
+            }
+
+            async function projectPanelInit() {
+                // Read links and break them up into an array
+                ass = await fetch("projects.txt");
+                assText = await ass.text();
+                assray = assText.split('\n');
+
+                for(let i = 0; i < assray.length; i++) {
+                    tmp_img = document.createElement('img');
+                    tmp_img.id = assray[i];
+                    tmp_img.src = 'assets/img/mosquitto.png';
+                    tmp_img.className = 'pin triggered';
+
+                    document.getElementById('projects').appendChild(tmp_img);
+                }
             }
         </script>
 
