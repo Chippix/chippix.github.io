@@ -34,12 +34,20 @@ function openContainer(openedContainerId, closeButtonId, openButtonId) {
     }
 }
 
-function infoPanelOpen() {
+async function infoPanelOpen(projectId) {
+    // 1. Grab files
+    imgPath = 'assets/img/projects/'+projectId+'/'+projectId+'.png';
+    txtPath = 'assets/img/projects/'+projectId+'/'+projectId+'.txt';
+    txtA = await fetch(txtPath);
+    txt = await txtA.text();
+
+    // 2. Bash information into infopanel
+    document.getElementById('infoPanel').querySelector('img').src = imgPath;
+    document.getElementById('infoPanel').querySelector('h1').textContent = projectId;    
+    document.getElementById('infoPanel').querySelector('p').textContent = txt;
+
+    // 3. Display
     document.getElementById('infoPanel').classList.add('open');
-    // await wait(1000);
-    // document.getElementById('infoPanel').addEventListener('slide-right', () => {
-    // document.getElementById('infoPanel').remove('slide-left'); 
-    // }, { once: true });
 }
 
 
@@ -69,12 +77,11 @@ async function projectPanelInit() {
         tmp_img.id = assray[i];
         tmp_img.src = 'assets/img/projects/'+assray[i]+'/'+assray[i]+'.png';
         tmp_img.className = 'pin triggered';
-        tmp_img.onclick = infoPanelOpen;
+        tmp_img.onclick = () => infoPanelOpen(assray[i]);
         tmp_img.style.position = 'absolute';
         tmp_img.style.top = Math.floor((Math.random() * (maxTop-minTop) + minTop)).toString()+'%';
         tmp_img.style.left = Math.floor((Math.random() * (maxLeft-minLeft) + minLeft)).toString()+'%';
         tmp_img.style.z_index = Math.floor((Math.random() * (zMax-zMin) + zMin));
-        
 
         document.getElementById('projects').appendChild(tmp_img);
     }

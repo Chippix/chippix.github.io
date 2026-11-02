@@ -1,0 +1,1 @@
+This website was made from scratch using HTML, CSS and Javascript as a learning project. I intend to display the programming projects I worked on in my sparetime, social media and art here. Ocasionally I will also update the website as I get new small ideas to implement/incoorporate.
