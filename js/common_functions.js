@@ -73,7 +73,7 @@ async function projectPanelInit() {
         img = document.createElement('img');
         img.id = assray[i];
         img.src = 'assets/img/projects/'+assray[i]+'/'+assray[i]+'.png';
-        img.onclick = () => infoPanelOpen(assray[i]);
+        img.onclick = () => infoPanelOpen(assray[i]); // onclick attribute doesnt show up in html markup
 
         // Create containing div element
         div = document.createElement('div');

@@ -279,4 +279,34 @@ button a {
 }
 
 /* ========= ANIMATIONS ========== */
+.tilting {
+    animation: tilt 1.4s step-end 0s infinite;
+}
 
+@keyframes tilt {
+    0% {
+        transform: rotate(-10deg);
+    } 
+    50% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: rotate(-10deg);
+    }
+}
+
+.tilting-alt {
+    animation: tilt-alt 1.4s step-end 0s infinite;
+}
+
+@keyframes tilt-alt {
+    0% {
+        transform: rotate(10deg);
+    } 
+    50% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(10deg);
+    }
+}
