@@ -280,7 +280,7 @@ button a {
 
 /* ========= ANIMATIONS ========== */
 .tilting {
-    animation: tilt 1.4s step-end 0s infinite;
+    animation: tilt 1.5s step-end 0s infinite;
 }
 
 @keyframes tilt {
@@ -296,7 +296,7 @@ button a {
 }
 
 .tilting-alt {
-    animation: tilt-alt 1.4s step-end 0s infinite;
+    animation: tilt-alt 1.5s step-end 0s infinite;
 }
 
 @keyframes tilt-alt {
