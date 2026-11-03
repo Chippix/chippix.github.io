@@ -102,6 +102,13 @@ body {
     transform: translateX(0);
 }
 
+#projectImg {
+    filter: drop-shadow(8px 8px 0 white)
+            drop-shadow(-8px 8px 0 white)
+            drop-shadow(8px -8px 0 white)
+            drop-shadow(-8px -8px 0 white);
+}
+
 /* Footer */
 /* Info on bottom of the website */
 .footer {
