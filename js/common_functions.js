@@ -78,16 +78,23 @@ async function projectPanelInit() {
         // Create containing div element
         div = document.createElement('div');
         div.className = 'pin triggered';
-        div.style.position = 'absolute';
-        div.style.scale = 0.25;
-        div.style.top = Math.floor((Math.random() * (maxTop-minTop) + minTop)).toString()+'%';
-        div.style.left = Math.floor((Math.random() * (maxLeft-minLeft) + minLeft)).toString()+'%';
-        div.style.z_index = Math.floor((Math.random() * (zMax-zMin) + zMin));
+
+        // Create div containing div
+        divdiv = document.createElement('div');
+        divdiv.style.position = 'absolute';
+        divdiv.style.scale = 0.33;
+        divdiv.style.transformOrigin = 'top left';
+        divdiv.style.top = Math.floor((Math.random() * (maxTop-minTop) + minTop)).toString()+'%';
+        divdiv.style.left = Math.floor((Math.random() * (maxLeft-minLeft) + minLeft)).toString()+'%';
+        divdiv.style.z_index = Math.floor((Math.random() * (zMax-zMin) + zMin));
 
         // Store img in div
         div.appendChild(img);
+
+        // Store div in div
+        divdiv.appendChild(div);
         
         // Store div in the current projects section
-        document.getElementById('projects').appendChild(div);
+        document.getElementById('projects').appendChild(divdiv);
     }
 }
