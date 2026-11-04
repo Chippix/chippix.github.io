@@ -84,7 +84,7 @@ body {
     min-width: 100vw;
     min-height: 100vh;
     position: fixed;
-    background:linear-gradient(90deg,rgba(0, 0, 0, 0) 30%, rgba(15, 15, 15, 0.9) 80%);
+    background:linear-gradient(90deg,rgba(0, 0, 0, 0) -35%, rgba(15, 15, 15, 0.9) 80%);
     z-index: 1;
     /* Pfusch textoutline */
     text-shadow: var(--thk) var(--thkm) 0 #FFF, var(--thk) var(--thkm) 0 #FFF, var(--thkm) var(--thk) 0 #FFF, var(--thk) var(--thk) 0 #FFF;
