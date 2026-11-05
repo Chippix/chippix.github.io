@@ -107,11 +107,13 @@ body {
 }
 
 #infoTabImg {
+    --thk: 3px;
+    --thm: -3px;
     height: 50vh;
-    filter: drop-shadow(8px 8px 0 white)
-            drop-shadow(-8px 8px 0 white)
-            drop-shadow(8px -8px 0 white)
-            drop-shadow(-8px -8px 0 white);
+    filter: drop-shadow(var(--thk) var(--thk) 0 white)
+            drop-shadow(var(--thm) var(--thk) 0 white)
+            drop-shadow(var(--thk) var(--thm) 0 white)
+            drop-shadow(var(--thm) var(--thm) 0 white);
 }
 
 #infoTabDescription {
