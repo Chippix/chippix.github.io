@@ -78,7 +78,7 @@ body {
 
 /* Info Panel */
 /* Sidepanel that opens up when an element with the class informational is clicked. */
-.info-panel {
+#infoTab {
     --thk: 1px;
     --thkm: -1px;
     min-width: 100vw;
@@ -98,15 +98,24 @@ body {
     transition: transform 1s ease;
 }
 
-.info-panel.open {
+#infoTab.open {
     transform: translateX(0);
 }
 
-#projectImg {
+#infoTabCloseButton {
+    font-size: 2em;
+}
+
+#infoTabImg {
+    height: 50vh;
     filter: drop-shadow(8px 8px 0 white)
             drop-shadow(-8px 8px 0 white)
             drop-shadow(8px -8px 0 white)
             drop-shadow(-8px -8px 0 white);
+}
+
+#infoTabDescription {
+    width: 60%;
 }
 
 /* Footer */

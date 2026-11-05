@@ -69,34 +69,40 @@
         </div> <!-- sidebar -->
 
 
-        <div id="infoPanel" class="info-panel">
+        <div id="infoTab" class="info-panel">
+
             <div class="row align-right">
                 <button 
-                    id="infopanelCloseButton" 
-                    onClick="infoPanelClose()" 
+                    id="infoTabCloseButton" 
+                    onClick="infoTabClose()" 
                     class="tilting-alt"
                     style="--rotate-deg: 8deg;">
                     X
                 </button>
             </div>
-            <img    id="projectImg" 
-                    src="assets/img/lemon.png" 
-                    class="tilting" 
-                    style="--rotate-deg: 8deg;">
-                    
-            <h1     id="projectName" 
-                    class="tilting-alt"
-                    style="--rotate-deg: 2deg;">
-                    Project Name
+            <img    
+                id="infoTabImg" 
+                src="assets/img/lemon.png" 
+                class="tilting" 
+                style="--rotate-deg: 8deg;">
+            <div class="row">
+                <br><br>
+            </div>
+            <h1     
+                id="infoTabTitle" 
+                class="tilting-alt"
+                style="--rotate-deg: 2deg;">
+                Project Name
             </h1>
-            <p      id="projectDescription" 
-                    class="tilting"
-                    style="--rotate-deg: 2deg;">
-                    This man is holding a lemon.<br>
-                    Have a look at 
-                    <a href="https://www.alamy.com/stock-photo-business-man-holding-lemon-28762282.html"> it. </a>
+            <p      
+                id="infoTabDescription" 
+                class="tilting"
+                style="--rotate-deg: 2deg;">
+                This man is holding a lemon.<br>
+                Have a look at it.
             </p>
-        </div>
+
+        </div> <!-- infoTab -->
 
 
         <div class="content">
@@ -156,7 +162,7 @@
                 <p> Social Media </p>
             </div>
             
-        </div>
+        </div> <!-- content -->
 
         <!-- TODO: fix first image not triggering when on screen bug -->
         <script>

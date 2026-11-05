@@ -34,25 +34,25 @@ function openContainer(openedContainerId, closeButtonId, openButtonId) {
     }
 }
 
-async function infoPanelOpen(projectId) {
+async function infoTabOpen(projectId) {
     // 1. Grab files
     imgPath = 'assets/img/projects/'+projectId+'/'+projectId+'.png';
     txtPath = 'assets/img/projects/'+projectId+'/'+projectId+'.txt';
     txtA = await fetch(txtPath);
     txt = await txtA.text();
 
-    // 2. Bash information into infopanel
-    document.getElementById('infoPanel').querySelector('img').src = imgPath;
-    document.getElementById('infoPanel').querySelector('h1').textContent = projectId;    
-    document.getElementById('infoPanel').querySelector('p').textContent = txt;
+    // 2. Bash information into infoTab
+    document.getElementById('infoTab').querySelector('img').src = imgPath;
+    document.getElementById('infoTab').querySelector('h1').textContent = projectId;    
+    document.getElementById('infoTab').querySelector('p').textContent = txt;
 
     // 3. Display
-    document.getElementById('infoPanel').classList.add('open');
+    document.getElementById('infoTab').classList.add('open');
 }
 
 
-function infoPanelClose() {
-    document.getElementById('infoPanel').classList.remove('open'); 
+function infoTabClose() {
+    document.getElementById('infoTab').classList.remove('open'); 
 }
 
 async function projectPanelInit() {
@@ -73,7 +73,7 @@ async function projectPanelInit() {
         img = document.createElement('img');
         img.id = assray[i];
         img.src = 'assets/img/projects/'+assray[i]+'/'+assray[i]+'.png';
-        img.onclick = () => infoPanelOpen(assray[i]); // onclick attribute doesnt show up in html markup
+        img.onclick = () => infoTabOpen(assray[i]); // onclick attribute doesnt show up in html markup
 
         // Create containing div element
         div = document.createElement('div');
