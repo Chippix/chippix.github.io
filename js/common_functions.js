@@ -74,6 +74,8 @@ async function projectPanelInit() {
         img.id = assray[i];
         img.src = 'assets/img/projects/'+assray[i]+'/'+assray[i]+'.png';
         img.onclick = () => infoTabOpen(assray[i]); // onclick attribute doesnt show up in html markup
+        img.style.filter = "drop-shadow(calc(var(--size-shadow)*3) calc(var(--size-shadow)*3) var(--color-drop-shadow))";
+
 
         // Create containing div element
         div = document.createElement('div');
