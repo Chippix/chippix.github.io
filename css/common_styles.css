@@ -1,0 +1,337 @@
+@font-face {
+    font-family: 'Scriblefont';
+    src: url(../assets/font/SiKancil.otf) format('opentype');
+}
+
+*{
+    font-family: 'Scriblefont', sans-serif;
+}
+
+body {
+    background: url("../assets/img/bg_cork.jpg") center / cover no-repeat fixed;
+    color: black;
+    justify-content: left;
+    display: flex;
+    margin: 0;
+}
+
+/* ========== GLOBAL VARIABLES == */
+:root {
+    --color-polaroid: whitesmoke;
+    --color-stick-note:  rgb(255, 255, 110);
+    --color-drop-shadow: rgba(50, 44, 50, 0.3);
+    --size-pin: clamp(1rem, 2vw + 0.5rem, 2.5rem);
+    --size-polaroid: clamp(0.5rem, 1vw + 0.24rem, 1.25rem);
+    --size-shadow: 0.5em;
+    --duration-pin: 0.25s;
+    --duration-polaroid: 0.8s;
+}
+
+/* ========== NAVIGATION ========= */
+/* Sidebar */
+/* For navigation between pages on the website */
+.sidebar {
+    top: 0;
+    position: fixed;
+    position: -webkit-sticky;
+    width: clamp(120px, 15%, 320px);
+    z-index: 999;
+}
+
+/* Content */
+/* Main content container, content of the page will be displayed here */
+.content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+}
+
+/* Section */
+/* A dynamic screen sized container that centers all inline items it contains */
+.section {
+    min-width: 100vw;
+    min-height: 100vh;
+    /* delete the color later when testing is done */
+    background-color: rgba(124, 124, 124, 0.404); 
+    justify-content:center;
+    align-items: center;
+    display: inline-flex;
+    position: relative;
+}
+
+/* Row */
+/* A basic which stretches out to the entire screen length and aligns items next to each other. */
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 0.5em;
+}
+
+.align-right {
+    justify-content: right;
+}
+
+/* Info Panel */
+/* Sidepanel that opens up when an element with the class informational is clicked. */
+#infoTab {
+    --thk: 1px;
+    --thkm: -1px;
+    min-width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    background:linear-gradient(90deg,rgba(0, 0, 0, 0) -35%, rgba(15, 15, 15, 0.9) 80%);
+    z-index: 1;
+    /* Pfusch textoutline */
+    text-shadow: var(--thk) var(--thkm) 0 #FFF, var(--thk) var(--thkm) 0 #FFF, var(--thkm) var(--thk) 0 #FFF, var(--thk) var(--thk) 0 #FFF;
+    outline-color: white;
+    /* color: white; */
+    justify-items: center;
+    text-align: center;
+    flex-direction: column;
+    inset: 0;
+    transform: translateX(100vw);
+    transition: transform 1s ease;
+}
+
+#infoTab.open {
+    transform: translateX(0);
+}
+
+#infoTabCloseButton {
+    font-size: 2em;
+}
+
+#infoTabImg {
+    --thk: 3px;
+    --thm: -3px;
+    height: 50vh;
+    filter: drop-shadow(var(--thk) var(--thk) 0 white)
+            drop-shadow(var(--thm) var(--thk) 0 white)
+            drop-shadow(var(--thk) var(--thm) 0 white)
+            drop-shadow(var(--thm) var(--thm) 0 white);
+}
+
+#infoTabDescription {
+    width: 60%;
+}
+
+/* Footer */
+/* Info on bottom of the website */
+.footer {
+    background-color: burlywood;
+}
+
+/* ========== TEXTURES =========== */
+
+/* TODO: ripped off notepad page, with text aligning on lines */
+
+/* Button */
+/* delete the texture of awful looking buttons */
+button {
+    background-color: transparent;
+    color: inherit;
+    text-shadow: inherit;
+    font-size: 1.5em;
+    border-color: transparent;
+    /* width: 100%; */
+    padding: 0.75em;
+    cursor: pointer;
+}
+
+button a {
+    text-decoration: none;
+    height: 100%;
+    display: block;
+    color: inherit;
+    text-shadow: inherit;
+}
+
+/* For hiding buttons initially */
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+/* Note */
+/* make container look like a sticky note */
+.note {
+    box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
+    padding-top: calc(var(--size-pin) * 0.5);
+    margin: 0.5em;
+    color: blue;
+    border-width: 1em;
+    border-image-source: url(../assets/img/note.png);
+    border-image-slice: 50% 30%;
+    border-image-repeat: round;
+}
+
+/* Pin */
+/* draw pin on box and tilt on hover*/
+.pin {
+    position: relative;
+    transform-origin: top;
+    transition: 0.2s;
+}
+
+.pin:hover{
+    transform: rotate(-15deg);
+}
+
+/* Starting state */
+.pin::before {
+    content: "";
+    width: var(--size-pin);
+    height: var(--size-pin);
+    position: absolute;
+    top: calc(var(--size-pin) / -2);
+    left: calc(50% - calc(var(--size-pin) / 2) );
+    background-color: rgb(245, 100, 100);
+    border-radius: 50%;
+    /* Animation initial state */
+    visibility: hidden;
+}
+
+.pin::after {
+    content: "";
+    width: calc(var(--size-pin) * 0.8);
+    height: calc(var(--size-pin) * 0.8);
+    position: absolute;
+    top: calc(calc(var(--size-pin) / -2));
+    left: calc(50% - var(--size-pin) / 2);
+    background-color: rgb(255, 189, 189);
+    border-radius: 50%;
+    /* Animation initial state */
+    visibility: hidden;
+}
+
+/* Animated state */
+.pin.triggered::before {
+    visibility: visible;
+    animation: pinStuck var(--duration-pin) ease-in forwards, pinBounce 0.2s ease-in-out var(--duration-pin);
+}
+
+.pin.triggered::after {
+    visibility: visible;
+    animation: pinStuck var(--duration-pin) ease-in forwards, pinBounce 0.2s ease-in-out var(--duration-pin);
+}
+
+@keyframes pinStuck {
+    from {
+        scale: 3;
+        opacity: 0;
+    }
+    to {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes pinBounce {
+    0% {
+        transform: translateY(-3px);
+        transform: translateX(-1px);
+    }
+    33% {
+        transform: translateY(2px);
+        transform: translateX(1px);
+    }
+    66% {
+        transform: translateY(-1px);
+        transform: translateX(-0.5px);
+    }
+    100% {
+        transform: translateY(0px);
+        transform: translateX(0px);
+    }
+}
+
+/* Polaroid */
+/* make container look like a polaroid */
+
+/* Starting state */
+.polaroid {
+    background: linear-gradient(165deg, rgb(213, 210, 225) 10%, white, rgb(210, 210, 210) 90%);
+    box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
+    padding: var(--size-polaroid) var(--size-polaroid) calc(var(--size-polaroid) * 2.5) var(--size-polaroid);
+    width: fit-content;
+    height: fit-content;
+    visibility: hidden;
+}
+
+/* Animated state */
+.polaroid.triggered {
+    visibility: visible;
+    animation: slideIn var(--duration-polaroid) ease-out;
+} 
+
+.polaroid.triggered img {
+    animation: fadeBlackIn var(--duration-polaroid) ease-in both;
+    display: block;
+}
+
+@keyframes fadeBlackIn {
+    from {
+        filter: brightness(0);
+    }
+
+    to {
+        filter: brightness(1);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ========= ANIMATIONS ========== */
+
+
+/* 2 Frame Tilt animation */
+/* --rotate-deg: determine the amount of rotation in degrees on element level */
+.tilting {
+    animation: tilt 1.5s step-end 0s infinite;
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotate(calc(var(--rotate-deg, 10deg) * -1));
+    } 
+    50% {
+        transform: rotate(var(--rotate-deg, 10deg));
+    }
+    100% {
+        transform: rotate(calc(var(--rotate-deg, 10deg) * -1));
+    }
+}
+
+.tilting-alt {
+    animation: tilt-alt 1.5s step-end 0s infinite;
+}
+
+@keyframes tilt-alt {
+    0% {
+        transform: rotate(var(--rotate-deg, 10deg));
+    } 
+    50% {
+        transform: rotate(calc(var(--rotate-deg, 10deg) * -1));
+    }
+    100% {
+        transform: rotate(var(--rotate-deg, 10deg));
+    }
+}
