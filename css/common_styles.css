@@ -163,13 +163,15 @@ button a {
 /* Note */
 /* make container look like a sticky note */
 .note {
-    box-shadow: var(--size-shadow) var(--size-shadow) var(--color-drop-shadow);
+    filter: drop-shadow(calc(var(--size-shadow)*0.5) calc(var(--size-shadow)*0.5) var(--color-drop-shadow));
     padding-top: calc(var(--size-pin) * 0.5);
     margin: 0.5em;
     color: blue;
-    border-width: 1em;
-    border-image-source: url(../assets/img/note.png);
-    border-image-slice: 50% 30%;
+    box-sizing: border-box; /* Dont count the box to the additional physical size of the html */
+    border-image-source: url(../assets/img/texture/note.png);
+    border-image-slice: 30% 25% 25% 25% fill;
+    border-image-width: 1em;
+    border-image-outset: 0.5em; /* push border texture out by _ without affecting size (overflow) */ 
     border-image-repeat: round;
 }
 
